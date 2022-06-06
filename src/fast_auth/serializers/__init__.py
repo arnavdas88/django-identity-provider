@@ -1,0 +1,1 @@
+from fast_auth.serializers import *
