@@ -74,9 +74,6 @@ python-u2flib-server==5.0.1
 git+https://github.com/teamcognito-solutions/django-mfa
 xmltodict==0.12.0
 
-# drf-manager
-git+https://github.com/arnavdas88/drf-manager
-
 # drf-api-logger
 drf-api-logger
 

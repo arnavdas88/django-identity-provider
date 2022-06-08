@@ -20,14 +20,17 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+import os
 
-from server.settings.default import BASE_DIR
+PREFIX = 'ZERON_'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+env_var = os.environ
+variables = dict(env_var).keys()
+
+zeron_configurations = [ variable for variable in variables if str(variable).startswith(PREFIX) ]
+
+for conf in zeron_configurations:
+    key = "_".join(conf.split("_")[1:])
+    value = os.environ.get(conf)
+
+    globals()[key] = value
